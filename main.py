@@ -8,7 +8,7 @@ try:
     print("In try block")    
 except FileNotFoundError:
     exercise_file = open(file_name, "w")
-    exercise_file.write("exercise,weight")
+    exercise_file.write("exercise,weight\n")
     exercise_file.close()
     print("In except block")
 
@@ -31,19 +31,19 @@ user_choice = ""
 while user_choice != "8":
     user_choice = home_menu()
     if (user_choice == "1"):
-        add_exercise()
+        add_exercise(file_name)
     elif (user_choice == "2"):
-        update_exercise()
+        update_exercise(file_name)
     elif (user_choice == "3"):
-        remove_exercise()
+        remove_exercise(file_name)
     elif (user_choice == "4"):
-        add_weight()
+        add_weight(file_name)
     elif (user_choice == "5"):
-        update_weight()
+        update_weight(file_name)
     elif (user_choice == "6"):
-        remove_weight()
+        remove_weight(file_name)
     elif (user_choice == "7"):
-        view_list()      
+        view_list(file_name)      
     elif (user_choice == "8"):
         print("You entered 8")
         continue
