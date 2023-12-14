@@ -22,4 +22,8 @@ while user_choice != "5":
     elif (user_choice == "4"):
         print("You entered 4")
     elif (user_choice == "5"):
-        print("You entered 45")
+        print("You entered 5")
+    else:
+        print("Invalid Input: ")
+
+print("Thanl you for using gym app!")
