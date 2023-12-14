@@ -6,9 +6,11 @@ try:
     exercise_file = open(file_name, "r")
     exercise_file.close()
     print("In try block")    
-except:
+except FileNotFoundError:
     exercise_file = open(file_name, "w")
     exercise_file.write("exercise,weight")
+    exercise_file.close()
+    print("In except block")
 
 print("welcome to your gym tracker")
 
