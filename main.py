@@ -1,5 +1,15 @@
 from gym_functions import add_exercise, update_exercise, remove_exercise, add_weight, update_weight, remove_weight, view_list
 
+file_name = "exercise.csv"
+
+try:
+    exercise_file = open(file_name, "r")
+    exercise_file.close()
+    print("In try block")    
+except:
+    exercise_file = open(file_name, "w")
+    exercise_file.write("exercise,weight")
+
 print("welcome to your gym tracker")
 
 def home_menu():
