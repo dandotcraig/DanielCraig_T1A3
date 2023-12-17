@@ -3,9 +3,12 @@ import csv
 def add_exercise(file_name):
     print("add exercise")
     exercise_name = input("Enter your exercise: ")
+    weight_number = input("Enter your weight: ")
+    set_number = input("Enter your sets: ")
+    rep_number = input("Enter your reps: ")
     with open(file_name, "a") as f:
         writer = csv.writer(f)
-        writer.writerow([exercise_name])
+        writer.writerow([exercise_name, weight_number, set_number, rep_number])
 
 def update_exercise(file_name):
     print("update exercise")   
@@ -16,10 +19,6 @@ def remove_exercise(file_name):
     
 def add_weight(file_name):
     print("add weight")
-    exercise_weight = input("Enter your weight: ")
-    with open(file_name, "a") as f:
-        writer = csv.writer(f)
-        writer.writerow([exercise_weight])
 
 def update_weight(file_name):
     print("update weight")
