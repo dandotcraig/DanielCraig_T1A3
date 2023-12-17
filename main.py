@@ -23,12 +23,13 @@ def home_menu():
     print("6. Enter 6 to remove weight in your list")
     print("7. Enter 7 to view workout to your list")
     print("8. Enter 8 to view your history")
+    print("9. Enter 9 to exit")
     choice = input("Enter your selection: ")
     return choice
 
 user_choice = ""
 
-while user_choice != "8":
+while user_choice != "9":
     user_choice = home_menu()
     if (user_choice == "1"):
         add_exercise(file_name)

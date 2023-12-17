@@ -9,6 +9,7 @@ def add_exercise(file_name):
 
 def update_exercise(file_name):
     print("update exercise")   
+    
 
 def remove_exercise(file_name):
     print("remove exercise")
@@ -28,3 +29,7 @@ def remove_weight(file_name):
 
 def view_list(file_name):
     print("view list")
+    with open(file_name, "r") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            print(row)
