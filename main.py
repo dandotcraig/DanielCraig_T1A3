@@ -2,7 +2,7 @@ from gym_functions import view_previous_workout, add_exercise, update_exercise, 
 
 file_name = "exercise.csv"
 
-print("welcome to your workout tracker - what do you want to do? ")
+print("welcome to your workout tracker\n")
 
 try:
     exercise_file = open(file_name, "r")

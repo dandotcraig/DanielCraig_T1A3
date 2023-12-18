@@ -2,13 +2,33 @@ import csv
 from datetime import date
 
 def view_previous_workout(file_name):
-    print("\nview list")
     print(f"Last excercise {date.today()} \n")
     with open(file_name, "r") as f:
         reader = csv.reader(f)
         for row in reader:
-            # print(row)
-            print("\n")
+            print(row)
+            # print("\n")
+
+def remove_exercise(file_name):
+    print("remove exercise")
+    # user input
+    exercise_name_remove = input("Enter the exercise you want to remove: ")
+    # list variable
+    exercise_list = []
+    # open file to read contents
+    with open(file_name, "r") as f:
+        # new copy of the file
+        reader = csv.reader(f)
+        # loop through each row
+        for row in reader:
+            # if its not the input
+            if (exercise_name_remove != row[0]):
+                # we want it in the update cvs
+                exercise_list.append(row)
+    # now we copy it over without the user input
+    with open(file_name, "w") as f:
+        writer = csv.writer(f)
+        writer.writerows(exercise_list)
 
 def add_exercise(file_name):
     print("add exercise")
@@ -31,6 +51,27 @@ def remove_exercise(file_name):
     # list variable
     exercise_list = []
     # open file to read contents
+    with open(file_name, "r") as f:
+        # new copy of the file
+        reader = csv.reader(f)
+        # loop through each row
+        for row in reader:
+            # if its not the input
+            if (exercise_name_remove != row[0]):
+                # we want it in the update cvs
+                exercise_list.append(row)
+    # now we copy it over without the user input
+    with open(file_name, "w") as f:
+        writer = csv.writer(f)
+        writer.writerows(exercise_list)
+
+def view_previous_workout(file_name):
+    print(f"Last excercise {date.today()} \n")
+    with open(file_name, "r") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            print(row)
+            # print("\n")
     with open(file_name, "r") as f:
         # new copy of the file
         reader = csv.reader(f)
