@@ -1,11 +1,14 @@
 import csv
+from datetime import date
 
 def view_previous_workout(file_name):
-    print("view list")
+    print("\nview list")
+    print(f"Last excercise {date.today()} \n")
     with open(file_name, "r") as f:
         reader = csv.reader(f)
         for row in reader:
-            print(row)
+            # print(row)
+            print("\n")
 
 def add_exercise(file_name):
     print("add exercise")

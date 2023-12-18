@@ -2,20 +2,22 @@ from gym_functions import view_previous_workout, add_exercise, update_exercise, 
 
 file_name = "exercise.csv"
 
+print("welcome to your workout tracker - what do you want to do? ")
+
 try:
     exercise_file = open(file_name, "r")
     exercise_file.close()
-    print("In try block")    
+    print("Here is your last work out: ")    
 except FileNotFoundError:
     exercise_file = open(file_name, "w")
-    exercise_file.write("exercise,weight\n")
+    exercise_file.write("exercise,weight,sets,reps\n")
     exercise_file.close()
-    print("In except block")
+    print("Enter 1 to add workout to your list")
 
-print("welcome to your workout tracker - what do you want to do? ")
+
 
 def home_menu():
-    print("1. Enter 1 to view prevous workout")
+    print(view_previous_workout(file_name))
     print("2. Enter 2 to add new exercise")
     print("3. Enter 3 to Update exercise")
     print("4. Enter 4 to delete exercise")
@@ -41,4 +43,4 @@ while user_choice != "5":
     else:
         print("Invalid Input: ")
 
-print("Thanl you for using gym app!")
+print("Thanks you for using workout tracker")
