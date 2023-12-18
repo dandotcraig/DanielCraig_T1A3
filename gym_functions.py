@@ -1,5 +1,12 @@
 import csv
 
+def view_previous_workout(file_name):
+    print("view list")
+    with open(file_name, "r") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            print(row)
+
 def add_exercise(file_name):
     print("add exercise")
     exercise_name = input("Enter your exercise: ")
@@ -35,19 +42,3 @@ def remove_exercise(file_name):
         writer = csv.writer(f)
         writer.writerows(exercise_list)
 
-    
-def add_weight(file_name):
-    print("add weight")
-
-def update_weight(file_name):
-    print("update weight")
-
-def remove_weight(file_name):
-    print("remove weight")
-
-def view_list(file_name):
-    print("view list")
-    with open(file_name, "r") as f:
-        reader = csv.reader(f)
-        for row in reader:
-            print(row)
