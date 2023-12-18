@@ -16,7 +16,17 @@ def update_exercise(file_name):
 
 def remove_exercise(file_name):
     print("remove exercise")
-    exercise_name = input("Enter the exercise you want to remove: ") 
+    exercise_name_remove = input("Enter the exercise you want to remove: ")
+    exercise_list = []
+    with open(file_name, "r") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if (exercise_name_remove != row[0]):
+                exercise_list.append(row)
+    with open(file_name, "w") as f:
+        writer = csv.writer(f)
+        writer.writerows(exercise_list)
+
     
 def add_weight(file_name):
     print("add weight")
