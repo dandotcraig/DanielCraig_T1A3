@@ -1,13 +1,29 @@
 import csv
 from datetime import date
 
+copied_file = []
+
 def view_previous_workout(file_name):
-    print(f"Last excercise {date.today()} \n")
-    with open(file_name, "r") as f:
+    with open(file_name, 'r') as f:
         reader = csv.reader(f)
         for row in reader:
-            print(row)
-            # print("\n")
+            copied_file.append(row)
+    for i in range (len(copied_file)):
+        print("Row " + str(i) + ": " + str(copied_file[i]))
+
+# def view_previous_workout(file_name):
+#     file = open(file_name)
+#     for line in file:
+#         print(line)
+
+# def view_previous_workout(file_name):
+#     print(f"Last excercise {date.today()} \n")
+#     with open(file_name, "r") as f:
+#         reader = csv.reader(f)
+#         for row in reader:
+#             print("Row" + str(row[0]) + str(row))
+#             # print("\n")
+
 
 def remove_exercise(file_name):
     print("remove exercise")
@@ -41,7 +57,28 @@ def add_exercise(file_name):
         writer.writerow([exercise_name, weight_number, set_number, rep_number])
 
 def update_exercise(file_name):
-    print("update exercise")   
+    print("update exercise")
+    # user input
+    exercise_name_update = input("Enter the exercise you want to update: ")
+    # list variable
+    exercise_list = []
+    # open file to read contents
+    with open(file_name, "r") as f:
+        # new copy of the file
+        reader = csv.reader(f)
+        for row in reader:
+            exercise_list.append(row)
+        
+        # loop through each row
+        ## for row in reader:
+            # if its not the input
+            ## if (exercise_name_update != row[0]):
+                # we want it in the update cvs
+                ## exercise_list.append(row)
+    # now we copy it over without the user input
+    # with open(file_name, "w") as f:
+    #     writer = csv.writer(f)
+    #     writer.writerows(exercise_list)   
     
 
 def remove_exercise(file_name):
@@ -65,13 +102,14 @@ def remove_exercise(file_name):
         writer = csv.writer(f)
         writer.writerows(exercise_list)
 
-def view_previous_workout(file_name):
+def save_exit(file_name):
+    print("save & exit")
+    # user input
+    exercise_name_remove = input("Enter the exercise you want to remove: ")
+    # list variable
+    exercise_list = []
+    # open file to read contents
     print(f"Last excercise {date.today()} \n")
-    with open(file_name, "r") as f:
-        reader = csv.reader(f)
-        for row in reader:
-            print(row)
-            # print("\n")
     with open(file_name, "r") as f:
         # new copy of the file
         reader = csv.reader(f)
