@@ -16,6 +16,7 @@ def update_exercise(file_name):
 
 def remove_exercise(file_name):
     print("remove exercise")
+    exercise_name = input("Enter the exercise you want to remove: ") 
     
 def add_weight(file_name):
     print("add weight")
