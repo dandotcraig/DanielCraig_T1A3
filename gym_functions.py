@@ -1,5 +1,8 @@
 import csv
 from datetime import date
+from rich import print
+from tabulate import tabulate
+import numpy as np
 
 copied_file = []
 
@@ -32,7 +35,7 @@ def add_exercise(file_name):
             copied_file.append(row)
     print("\nhere is your updated routine")
     for i in range (len(copied_file)):
-        print("Exercise " + str(int(i)) + ": " + str(copied_file[i])) 
+        print("Exercise " + str(int(i)) + ": " + tabulate(str(copied_file[i]))) 
     
 
 def update_exercise(file_name):

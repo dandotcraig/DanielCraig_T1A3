@@ -1,5 +1,7 @@
 from gym_functions import view_previous_workout, add_exercise, update_exercise, remove_exercise, save_exit
 from datetime import date
+from rich import print
+
 
 file_name = "exercise_list.csv"
 history = "exercise_log.csv"
@@ -28,10 +30,10 @@ print(view_previous_workout(file_name))
 
 def home_menu():
     
-    print("1. Enter 1 to add new exercise")
-    print("2. Enter 2 to Update exercise")
-    print("3. Enter 3 to delete exercise")
-    print("4. Enter 4 exit and save workout")
+    print("[blue]1. Enter 1 to add new exercise")
+    print("[green]2. Enter 2 to Update exercise")
+    print("[blue]3. Enter 3 to delete exercise")
+    print("[green]4. Enter 4 exit and save workout")
     choice = input("Enter your selection: ")
     return choice
 
