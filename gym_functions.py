@@ -11,12 +11,14 @@ def view_previous_workout(file_name):
         reader = csv.reader(f)
 
         headers = next(reader)
-        print(f"this is the header {headers}")
+        print(f"Header: {headers}")
 
         for row in reader:
             copied_file.append(row)
+    index = 1
     for row in range (len(copied_file)):
-        print("Exercise " + str(int(row)) + ": " + str(copied_file[row]))
+        print(f"Exercise {index}: {str(copied_file[row])}")
+        index += 1
     
     return ""
         
