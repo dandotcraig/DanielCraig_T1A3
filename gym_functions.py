@@ -9,10 +9,14 @@ def view_previous_workout(file_name):
     copied_file = []
     with open(file_name, 'r') as f:
         reader = csv.reader(f)
+
+        headers = next(reader)
+        print(f"this is the header {headers}")
+
         for row in reader:
             copied_file.append(row)
-    for i in range (len(copied_file)):
-        print("Exercise " + str(int(i)) + ": " + str(copied_file[i]))
+    for row in range (len(copied_file)):
+        print("Exercise " + str(int(row)) + ": " + str(copied_file[row]))
     
     return ""
         
@@ -47,19 +51,16 @@ def update_exercise(file_name):
     with open(file_name, "r") as f:
         # new copy of the file
         reader = csv.reader(f)
-        for row in reader:
-            exercise_list.append(row)
-    
         # loop through each row
-        ## for row in reader:
+        for row in reader:
             # if its not the input
-            ## if (exercise_name_update != row[0]):
+            if (exercise_name_update == row[0]):
                 # we want it in the update cvs
-                ## exercise_list.append(row)
+                exercise_list.append(row)
     # now we copy it over without the user input
-    # with open(file_name, "w") as f:
-    #     writer = csv.writer(f)
-    #     writer.writerows(exercise_list) 
+    with open(file_name, "w") as f:
+        writer = csv.writer(f)
+        writer.writerows(exercise_list)
 
 def remove_exercise(file_name):
     print("remove exercise")
@@ -92,7 +93,7 @@ def remove_exercise(file_name):
     for i in range (len(copied_file)):
         print("Exercise " + str(int(i)) + ": " + (str(copied_file[i])))
     
-    return "hello dan"
+    return ""
 
 def save_exit(file_name):
     print("save & exit")
