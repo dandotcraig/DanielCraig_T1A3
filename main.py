@@ -1,4 +1,5 @@
 from gym_functions import view_previous_workout, add_exercise, update_exercise, remove_exercise, save_exit
+from datetime import date
 
 file_name = "exercise_list.csv"
 history = "exercise_log.csv"
@@ -8,7 +9,9 @@ print("welcome to your workout tracker\n")
 try:
     exercise_list = open(file_name, "r")
     exercise_list.close()
-    exercise_log = open(history, "r")
+    exercise_log = open(history, "w")
+    exercise_log.write(str(date.today()) + "\n")
+    exercise_log.write("exercise,weight,sets,reps\n")
     exercise_log.close()
     print("Here is your last work out: ")
 except FileNotFoundError:
@@ -16,14 +19,15 @@ except FileNotFoundError:
     exercise_list.write("exercise,weight,sets,reps\n")
     exercise_list.close()
     exercise_log = open(history, "w")
+    exercise_log.write(str(date.today()) + "\n")
     exercise_log.write("exercise,weight,sets,reps\n")
     exercise_log.close()
     print("Enter 1 to add workout to your list")
 
-
+print(view_previous_workout(file_name))
 
 def home_menu():
-    print(view_previous_workout(file_name))
+    
     print("1. Enter 1 to add new exercise")
     print("2. Enter 2 to Update exercise")
     print("3. Enter 3 to delete exercise")
