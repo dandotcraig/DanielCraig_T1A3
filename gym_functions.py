@@ -79,10 +79,10 @@ def update_exercise(file_name):
             copied_file.append(row)
     
     print("add exercise")
-    exercise_name = input("Enter your " + str(replaced_row[0][2]))
-    weight_number = input("Enter your weight: ")
-    set_number = input("Enter your sets: ")
-    rep_number = input("Enter your reps: ")
+    exercise_name = input("Re-type or update " + replaced_row[0] + ": ")
+    weight_number = input("Re-type or update " + replaced_row[0] + ": ")
+    set_number = input("Re-type or update " + replaced_row[0] + ": ")
+    rep_number = input("Re-type or update " + replaced_row[0] + ": ")
     with open(file_name, "a") as f:
         writer = csv.writer(f)
         writer.writerow([exercise_name, weight_number, set_number, rep_number])
