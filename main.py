@@ -1,4 +1,4 @@
-from gym_functions import view_previous_workout, add_exercise, update_exercise, remove_exercise, save_exit
+from gym_functions import view_previous_workout, add_exercise, update_exercise, remove_exercise, view_history, save_exit
 from datetime import date
 from rich import print
 
@@ -33,21 +33,24 @@ def home_menu():
     print("[blue]1. Enter 1 to add new exercise")
     print("[green]2. Enter 2 to Update exercise")
     print("[blue]3. Enter 3 to delete exercise")
-    print("[green]4. Enter 4 exit and save workout")
+    print("[green]4. Enter 4 to view workout history")
+    print("[blue]5. Enter 5 exit and save workout")
     choice = input("Enter your selection: ")
     return choice
 
 user_choice = ""
 
-while user_choice != "4":
+while user_choice != "5":
     user_choice = home_menu()
     if (user_choice == "1"):
         add_exercise(file_name)
     elif (user_choice == "2"):
         update_exercise(file_name)
     elif (user_choice == "3"):
-        remove_exercise(file_name)     
+        remove_exercise(file_name)   
     elif (user_choice == "4"):
+        view_history(file_name)        
+    elif (user_choice == "5"):
         save_exit(file_name)
         print("Exercise saved, cya next time!")
         continue
