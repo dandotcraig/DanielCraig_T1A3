@@ -54,6 +54,6 @@ while user_choice != "5":
         print("[green]Exercise logged, well-done, cya next time!")
         continue
     else:
-        print("Invalid Input: ")
+        print("Invalid Input - input needs to be a number between 1 - 5 ")
 
 print("[blue]Thanks you for using workout tracker")

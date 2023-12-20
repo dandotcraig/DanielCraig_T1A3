@@ -1,7 +1,7 @@
 import csv
 import datetime
 from rich import print
-
+from colored import fg, attr, bg
 
 copied_file = []
 
@@ -24,10 +24,52 @@ def view_previous_workout(file_name):
         
 def add_exercise(file_name):
     print("[green]You choose add a new exercise")
-    exercise_name = input("Enter your new exercise: ")
-    weight_number = input("Enter your weight: ")
-    set_number = input("Enter your sets: ")
-    rep_number = input("Enter your reps: ")
+    while True:
+        try:
+            exercise_name = input("Enter your new exercise: ")
+            if any(i.isdigit() for i in exercise_name):
+                print("[red]Exercise must not contain numbers, try again but with words this time.")
+                raise ValueError
+        except ValueError as e:
+            print(e)
+        else:
+            break
+
+    while True:
+        try:
+            kilo = "kg"
+            weight_number = str(input("Enter your weight in kgs: "))
+            if kilo not in weight_number:
+                print("[red]Weight must contain a number in kgs, try again.")
+                raise ValueError
+        except Exception:
+            print("[red]Something went wrong.")
+        else:
+            break
+
+    while True:
+        try:
+            set_number = int(input("Enter your sets: "))
+        except ValueError:
+            print("[red]Sorry, needs to be be a number")
+            continue
+        except Exception:
+            print("[red]Something went wrong.")
+        else:
+            break
+    
+    while True:
+        try:
+            rep_number = int(input("Enter your reps: "))
+        except ValueError:
+            print("[red]Sorry, needs to be be a number")
+            continue
+        except Exception:
+            print("[red]Something went wrong.")
+        else:
+            break
+
+    
     with open(file_name, "a") as f:
         writer = csv.writer(f)
         writer.writerow([exercise_name, weight_number, set_number, rep_number])
@@ -59,18 +101,27 @@ def update_exercise(file_name):
     # open file to read contents
     replaced_row = None
 
-    row_num = 0
-    with open(file_name, "r") as f:
-        # new copy of the file
-        reader = csv.reader(f)
-        # loop through each row
-        for row in reader:
-            if (exercise_name_update != row[0]):
-                # we want it in the update cvs
-                exercise_list.append(row)
-                
-            else:
-                replaced_row = row
+    try:
+        with open(file_name, "r") as f:
+            # new copy of the file
+            reader = csv.reader(f)
+            # loop through each row
+            for row in reader:
+                if (exercise_name_update != row[0]):
+                    # we want it in the update cvs
+                    exercise_list.append(row)  
+                if replaced_row == None:
+                    break  
+                else:
+                    replaced_row = row
+    except TypeError:
+        print("Does not match - make sure it matches an exercise above")
+
+    except replaced_row == None:
+        print("Try again")
+    
+    except Exception:
+        print("except")
 
                 
     # now we copy it over without the user input
@@ -88,10 +139,53 @@ def update_exercise(file_name):
             copied_file.append(row)
     
     print("\nUpdate the exercises details: ")
-    exercise_name = input("Re-type or update " + replaced_row[0] + ": ")
-    weight_number = input("Re-type or update " + replaced_row[1] + ": ")
-    set_number = input("Re-type or update " + replaced_row[2] + ": ")
-    rep_number = input("Re-type or update " + replaced_row[3] + ": ")
+    while True:
+        try:
+            exercise_name = input("Re-type or update " + replaced_row[0] + ": ")
+            if any(i.isdigit() for i in exercise_name):
+                print("[red]Exercise must not contain numbers, try again but with words this time.")
+                raise ValueError
+        except ValueError as e:
+            print(e)
+        else:
+            break
+    
+    while True:
+        try:
+            kilo = "kg"
+            weight_number = str(input("Re-type or update " + replaced_row[1] + ": "))
+            if kilo not in weight_number:
+                print("[red]Weight must contain a number in kgs, try again.")
+                raise ValueError
+        except Exception:
+            print("[red]Something went wrong.")
+        else:
+            break
+    
+    while True:
+        try:
+            set_number = int(input("Re-type or update " + replaced_row[2] + ": "))
+        except ValueError:
+            print("[red]Sorry, needs to be be a number")
+            continue
+        except Exception:
+            print("[red]Something went wrong.")
+        else:
+            break
+    
+    while True:
+        try:
+            rep_number = int(input("Re-type or update " + replaced_row[3] + ": "))
+        except ValueError:
+            print("[red]Sorry, needs to be be a number")
+            continue
+        except Exception:
+            print("[red]Something went wrong.")
+        else:
+            break
+    
+    
+    
     with open(file_name, "a") as f:
         writer = csv.writer(f)
         writer.writerow([exercise_name, weight_number, set_number, rep_number])
