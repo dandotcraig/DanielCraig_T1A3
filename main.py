@@ -1,6 +1,7 @@
 from gym_functions import view_previous_workout, add_exercise, update_exercise, remove_exercise, view_history, save_exit
 from datetime import date
 from rich import print
+import csv
 
 
 file_name = "exercise_list.csv"
@@ -11,9 +12,9 @@ print("welcome to your workout tracker\n")
 try:
     exercise_list = open(file_name, "r")
     exercise_list.close()
-    exercise_log = open(history, "w")
-    exercise_log.write(str(date.today()) + "\n")
-    exercise_log.write("exercise,weight,sets,reps\n")
+    exercise_log = open(history, "r")
+    # exercise_log.write(str(date.today()) + "\n")
+    # exercise_log.write("exercise,weight,sets,reps\n")
     exercise_log.close()
     print("Here is your last work out: ")
 except FileNotFoundError:
@@ -49,9 +50,9 @@ while user_choice != "5":
     elif (user_choice == "3"):
         remove_exercise(file_name)   
     elif (user_choice == "4"):
-        view_history(file_name)        
+        view_history(history)        
     elif (user_choice == "5"):
-        save_exit(file_name)
+        save_exit(file_name, history)
         print("Exercise saved, cya next time!")
         continue
     else:

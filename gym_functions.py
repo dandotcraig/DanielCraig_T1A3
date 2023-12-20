@@ -1,5 +1,5 @@
 import csv
-from datetime import date
+import datetime
 from rich import print
 
 
@@ -53,6 +53,8 @@ def update_exercise(file_name):
     exercise_list = []
     # open file to read contents
     replaced_row = None
+
+    row_num = 0
     with open(file_name, "r") as f:
         # new copy of the file
         reader = csv.reader(f)
@@ -61,8 +63,10 @@ def update_exercise(file_name):
             if (exercise_name_update != row[0]):
                 # we want it in the update cvs
                 exercise_list.append(row)
+                
             else:
                 replaced_row = row
+
                 
     # now we copy it over without the user input
     with open(file_name, "w") as f:
@@ -72,6 +76,7 @@ def update_exercise(file_name):
     copied_file = []
     
     print(replaced_row)
+    print(row_num)
 
     with open(file_name, 'r') as f:
         reader = csv.reader(f)   
@@ -80,9 +85,9 @@ def update_exercise(file_name):
     
     print("add exercise")
     exercise_name = input("Re-type or update " + replaced_row[0] + ": ")
-    weight_number = input("Re-type or update " + replaced_row[0] + ": ")
-    set_number = input("Re-type or update " + replaced_row[0] + ": ")
-    rep_number = input("Re-type or update " + replaced_row[0] + ": ")
+    weight_number = input("Re-type or update " + replaced_row[1] + ": ")
+    set_number = input("Re-type or update " + replaced_row[2] + ": ")
+    rep_number = input("Re-type or update " + replaced_row[3] + ": ")
     with open(file_name, "a") as f:
         writer = csv.writer(f)
         writer.writerow([exercise_name, weight_number, set_number, rep_number])
@@ -97,41 +102,6 @@ def update_exercise(file_name):
     for i in range (len(copied_file)):
         print("Exercise " + str(int(i)) + ": " + (str(copied_file[i]))) 
     
-    
-    
-    
-    
-    # could work
-    # print("Type in the updates: ")
-    # exercise_name = input("Enter rename: ")
-    # weight_number = input("Enter new weight: ")
-    # set_number = input("Enter new sets: ")
-    # rep_number = input("Enter new reps: ")
-
-    # exercise_list[0][0] = exercise_name
-    # exercise_list[0][1] = weight_number
-    # exercise_list[0][2] = set_number
-    # exercise_list[0][3] = rep_number
-
-    # print(exercise_list)
-
-    # convert = ",".join(map(str, exercise_list[0]))
-
-    # with open(file_name, "a") as f:
-    #     writer = csv.writer(f)
-    #     writer.writerow(convert)
-    # end of could work
-        # print(exercise_list)
-    # with open(file_name, "w") as f:
-        # writer = csv.writer(f)
-    # for row in exercise_list:
-    #     if (exercise_name_update == row[0]):
-    #         print(row)
-    # now we copy it over without the user input
-    # with open(file_name, "
-    # w") as f:
-    #     writer = csv.writer(f)
-    #     writer.writerows(exercise_list)
 
 def remove_exercise(file_name):
     print("remove exercise")
@@ -167,14 +137,46 @@ def remove_exercise(file_name):
     return ""
 
 
-def view_history(file_name):
+def view_history(history):
     print("Here are your previous workouts: ")
+    
+    pull_history = []
+    
+    with open(history, 'r') as f:
+        puller = csv.reader(f)   
+        for row in puller:
+            pull_history.append(row)
+    
+    print(pull_history)
+    return ""
 
-def save_exit(file_name):
+def save_exit(file_name, history):
     print("save & exit")
+    copied_file = []
+    with open(file_name, 'r') as f:
+        reader = csv.reader(f)
+
+        headers = next(reader)
+        print(f"Header: {headers}")
+
+        for row in reader:
+            copied_file.append(row)
+    
+    with open(history, 'a', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow([])
+        writer.writerow([f'{datetime.datetime.now():%d-%B-%Y %H:%M:%S}'])
+        writer.writerow([])
+
+    with open(history, "a") as f:
+        writer = csv.writer(f)
+        writer.writerows(copied_file)
+    
+    return ""
 
 
 
+    
 
 
 
