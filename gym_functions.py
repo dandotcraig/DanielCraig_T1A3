@@ -95,49 +95,43 @@ def add_exercise(file_name):
 def update_exercise(file_name):
     print("[green]You choose update an exercise")
     # user input
-    exercise_name_update = input("Enter the name of the exercise you want to update: ")
-    # list variable
-    exercise_list = []
-    # open file to read contents
-    replaced_row = None
-
-    try:
-        with open(file_name, "r") as f:
-            # new copy of the file
-            reader = csv.reader(f)
-            # loop through each row
-            for row in reader:
-                if (exercise_name_update != row[0]):
-                    # we want it in the update cvs
-                    exercise_list.append(row)  
-                if replaced_row == None:
-                    break  
-                else:
-                    replaced_row = row
-    except TypeError:
-        print("Does not match - make sure it matches an exercise above")
-
-    except replaced_row == None:
-        print("Try again")
     
-    except Exception:
-        print("except")
+    while True:
+        try:
+            exercise_name_update = input("Enter the name of the exercise you want to update: ")
+            # list variable
+            exercise_list = []
+            # open file to read contents
+            replaced_row = None
+            with open(file_name, "r") as f:
+                # new copy of the file
+                reader = csv.reader(f)
+                # loop through each row
+                for row in reader:
+                    if (exercise_name_update != row[0]):
+                        # we want it in the update cvs
+                        exercise_list.append(row)
+                    else:
+                        replaced_row = row
+                        raise ValueError("valueerror hit")
+        except ValueError as e:
+            print(e)
+            break
 
-                
-    # now we copy it over without the user input
+
     with open(file_name, "w") as f:
         writer = csv.writer(f)
         writer.writerows(exercise_list)
-    
+
     copied_file = []
-    
+
     print(replaced_row)
 
     with open(file_name, 'r') as f:
-        reader = csv.reader(f)   
+        reader = csv.reader(f)
         for row in reader:
             copied_file.append(row)
-    
+
     print("\nUpdate the exercises details: ")
     while True:
         try:
@@ -149,11 +143,11 @@ def update_exercise(file_name):
             print(e)
         else:
             break
-    
+
     while True:
         try:
             kilo = "kg"
-            weight_number = str(input("Re-type or update " + replaced_row[1] + ": "))
+            weight_number = str(input("Re-type or update, must be in kg " + replaced_row[1] + ": "))
             if kilo not in weight_number:
                 print("[red]Weight must contain a number in kgs, try again.")
                 raise ValueError
@@ -205,6 +199,31 @@ def update_exercise(file_name):
     print("")
     
 
+
+while True:
+        try:
+            print("[green]You selected to delete an exercise")
+            # user input
+            exercise_name_remove = input("Enter the name of the exercise you want to remove: ")
+            # list variable
+            exercise_list = []
+            # open file to read contents
+            replaced_row = None
+            with open(file_name, "r") as f:
+                # new copy of the file
+                reader = csv.reader(f)
+                # loop through each row
+                for row in reader:
+                    # if its not the input
+                    if (exercise_name_remove != row[0]):
+                        # we want it in the update cvs
+                        exercise_list.append(row)
+                    else:
+                        replaced_row = row
+        except ValueError as e:
+            print(e)
+            break
+
 def remove_exercise(file_name):
     print("[green]You selected to delete an exercise")
     # user input
@@ -225,7 +244,9 @@ def remove_exercise(file_name):
                 exercise_list.append(row)
             else:
                 replaced_row = row
+                raise ValueError("valueerror hit")
     # now we copy it over without the user input
+    
     with open(file_name, "w") as f:
         writer = csv.writer(f)
         writer.writerows(exercise_list)
