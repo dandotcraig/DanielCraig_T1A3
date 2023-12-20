@@ -1,7 +1,7 @@
 from gym_functions import view_previous_workout, add_exercise, update_exercise, remove_exercise, view_history, save_exit
 from datetime import date
 from rich import print
-import csv
+
 
 
 file_name = "exercise_list.csv"
