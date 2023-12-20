@@ -23,8 +23,8 @@ def view_previous_workout(file_name):
     return ""
         
 def add_exercise(file_name):
-    print("add exercise")
-    exercise_name = input("Enter your exercise: ")
+    print("[green]You choose add a new exercise")
+    exercise_name = input("Enter your new exercise: ")
     weight_number = input("Enter your weight: ")
     set_number = input("Enter your sets: ")
     rep_number = input("Enter your reps: ")
@@ -34,21 +34,26 @@ def add_exercise(file_name):
     
     copied_file = []
     
+    new_exercise = [exercise_name, weight_number, set_number, rep_number]
+
     with open(file_name, 'r') as f:
         reader = csv.reader(f)   
         for row in reader:
             copied_file.append(row)
-    print("\nhere is your updated routine")
+    print("\nHere is your updated routine:\n")
     for i in range (len(copied_file)):
         print("Exercise " + str(int(i)) + ": " + (str(copied_file[i]))) 
+    
+    print(f"\nThis line {new_exercise} has been added")
+    print("")
 
 
 
 
 def update_exercise(file_name):
-    print("update exercise")
+    print("[green]You choose update an exercise")
     # user input
-    exercise_name_update = input("Enter the exercise you want to update: ")
+    exercise_name_update = input("Enter the name of the exercise you want to update: ")
     # list variable
     exercise_list = []
     # open file to read contents
@@ -76,14 +81,13 @@ def update_exercise(file_name):
     copied_file = []
     
     print(replaced_row)
-    print(row_num)
 
     with open(file_name, 'r') as f:
         reader = csv.reader(f)   
         for row in reader:
             copied_file.append(row)
     
-    print("add exercise")
+    print("\nUpdate the exercises details: ")
     exercise_name = input("Re-type or update " + replaced_row[0] + ": ")
     weight_number = input("Re-type or update " + replaced_row[1] + ": ")
     set_number = input("Re-type or update " + replaced_row[2] + ": ")
@@ -94,22 +98,28 @@ def update_exercise(file_name):
     
     copied_file = []
     
+    new_exercise = [exercise_name, weight_number, set_number, rep_number]
+
     with open(file_name, 'r') as f:
         reader = csv.reader(f)   
         for row in reader:
             copied_file.append(row)
-    print("\nhere is your updated routine")
+    print("\nHere is your updated workout")
     for i in range (len(copied_file)):
         print("Exercise " + str(int(i)) + ": " + (str(copied_file[i]))) 
+    print(f"\nThis line has been updated to {new_exercise}")
+    print("")
     
 
 def remove_exercise(file_name):
-    print("remove exercise")
+    print("[green]You selected to delete an exercise")
     # user input
-    exercise_name_remove = input("Enter the exercise you want to remove: ")
+    exercise_name_remove = input("Enter the name of the exercise you want to remove: ")
     # list variable
     exercise_list = []
     # open file to read contents
+    replaced_row = None
+
     with open(file_name, "r") as f:
         # new copy of the file
         reader = csv.reader(f)
@@ -119,26 +129,32 @@ def remove_exercise(file_name):
             if (exercise_name_remove != row[0]):
                 # we want it in the update cvs
                 exercise_list.append(row)
+            else:
+                replaced_row = row
     # now we copy it over without the user input
     with open(file_name, "w") as f:
         writer = csv.writer(f)
         writer.writerows(exercise_list)
     
+    
+
     copied_file = []
     
     with open(file_name, 'r') as f:
         reader = csv.reader(f)   
         for row in reader:
             copied_file.append(row)
-    print("\nhere is your updated routine")
+    print("\nHere is your updated workout")
     for i in range (len(copied_file)):
         print("Exercise " + str(int(i)) + ": " + (str(copied_file[i])))
     
+    print(f"\nThis line {replaced_row} has been removed")
+    print("")
     return ""
 
 
 def view_history(history):
-    print("Here are your previous workouts: ")
+    print("Here are all your previous workouts: ")
     
     pull_history = []
     
@@ -151,13 +167,13 @@ def view_history(history):
     return ""
 
 def save_exit(file_name, history):
-    print("save & exit")
+    print("[blue]You selected exit and log your workout")
     copied_file = []
     with open(file_name, 'r') as f:
         reader = csv.reader(f)
 
         headers = next(reader)
-        print(f"Header: {headers}")
+        
 
         for row in reader:
             copied_file.append(row)
@@ -173,22 +189,3 @@ def save_exit(file_name, history):
         writer.writerows(copied_file)
     
     return ""
-
-
-
-    
-
-
-
-# def view_previous_workout(file_name):
-#     file = open(file_name)
-#     for line in file:
-#         print(line)
-
-# def view_previous_workout(file_name):
-#     print(f"Last excercise {date.today()} \n")
-#     with open(file_name, "r") as f:
-#         reader = csv.reader(f)
-#         for row in reader:
-#             print("Row" + str(row[0]) + str(row))
-#             # print("\n")
