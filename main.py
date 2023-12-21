@@ -1,13 +1,14 @@
 from gym_functions import view_previous_workout, add_exercise, update_exercise, remove_exercise, view_history, save_exit
 from datetime import date
 from rich import print
+import emoji
 
 
 
 file_name = "exercise_list.csv"
 history = "exercise_log.csv"
 
-print("\n[green]Welcome to your workout tracker\n")
+print("\n[green] :flexed_biceps: Welcome to your workout tracker :flexed_biceps:  \n")
 
 try:
     exercise_list = open(file_name, "r")
@@ -56,4 +57,4 @@ while user_choice != "5":
     else:
         print("Invalid Input - input needs to be a number between 1 - 5 ")
 
-print("[blue]Thanks you for using workout tracker")
+print(":woozy_face:[blue]Thanks you for using workout tracker :woozy_face:")

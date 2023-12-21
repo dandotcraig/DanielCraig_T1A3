@@ -1,7 +1,7 @@
 import csv
 import datetime
 from rich import print
-from colored import fg, attr, bg
+
 
 copied_file = []
 
@@ -28,7 +28,7 @@ def add_exercise(file_name):
         try:
             exercise_name = input("Enter your new exercise: ")
             if any(i.isdigit() for i in exercise_name):
-                print("[red]Exercise must not contain numbers, try again but with words this time.")
+                print("[red] :cross_mark: Exercise must not contain numbers, try again but with words this time. :cross_mark:")
                 raise ValueError
         except ValueError as e:
             print(e)
@@ -40,10 +40,10 @@ def add_exercise(file_name):
             kilo = "kg"
             weight_number = str(input("Enter your weight in kgs: "))
             if kilo not in weight_number:
-                print("[red]Weight must contain a number in kgs, try again.")
+                print("[red] :cross_mark: Weight must contain a number in kgs :cross_mark: ")
                 raise ValueError
         except Exception:
-            print("[red]Something went wrong.")
+            print("[red] :cross_mark: Try again :cross_mark: ")
         else:
             break
 
@@ -51,10 +51,10 @@ def add_exercise(file_name):
         try:
             set_number = int(input("Enter your sets: "))
         except ValueError:
-            print("[red]Sorry, needs to be be a number")
+            print("[red] :cross_mark: Sorry, needs to be be a number. :cross_mark: ")
             continue
         except Exception:
-            print("[red]Something went wrong.")
+            print("[red] :cross_mark: Try again :cross_mark: ")
         else:
             break
     
@@ -62,10 +62,10 @@ def add_exercise(file_name):
         try:
             rep_number = int(input("Enter your reps: "))
         except ValueError:
-            print("[red]Sorry, needs to be be a number")
+            print(" :cross_mark: Sorry, needs to be be a number. :cross_mark: ")
             continue
         except Exception:
-            print("[red]Something went wrong.")
+            print("[red] :cross_mark: Try again :cross_mark: ")
         else:
             break
 
@@ -113,12 +113,12 @@ def update_exercise(file_name):
                 else:
                     replaced_row = row
         if (replaced_row is None):
+            print("[red] :cross_mark: Input does not match, try again. :cross_mark: ")
             continue
+            
         else:
             break
-                        
-                    
-
+                                
     print(replaced_row)
 
     with open(file_name, "w") as f:
@@ -126,8 +126,6 @@ def update_exercise(file_name):
         writer.writerows(exercise_list)
 
     copied_file = []
-
-    
 
     with open(file_name, 'r') as f:
         reader = csv.reader(f)
@@ -139,7 +137,7 @@ def update_exercise(file_name):
         try:
             exercise_name = input("Re-type or update " + replaced_row[0] + ": ")
             if any(i.isdigit() for i in exercise_name):
-                print("[red]Exercise must not contain numbers, try again but with words this time.")
+                print(" :cross_mark: Exercise must not contain numbers, try again but with words this time. :cross_mark: ")
                 raise ValueError
         except ValueError as e:
             print(e)
@@ -151,10 +149,10 @@ def update_exercise(file_name):
             kilo = "kg"
             weight_number = str(input("Re-type or update, must be in kg " + replaced_row[1] + ": "))
             if kilo not in weight_number:
-                print("[red]Weight must contain a number in kgs, try again.")
+                print("[red] :cross_mark: Weight must contain a number in kgs :cross_mark: ")
                 raise ValueError
         except Exception:
-            print("[red]Something went wrong.")
+            print("[red] :cross_mark: Try again :cross_mark: ")
         else:
             break
     
@@ -162,10 +160,10 @@ def update_exercise(file_name):
         try:
             set_number = int(input("Re-type or update " + replaced_row[2] + ": "))
         except ValueError:
-            print("[red]Sorry, needs to be be a number")
+            print("[red] :cross_mark: Sorry, needs to be be a number :cross_mark: ")
             continue
         except Exception:
-            print("[red]Something went wrong.")
+            print("[red] :cross_mark: Try again :cross_mark: ")
         else:
             break
     
@@ -173,10 +171,10 @@ def update_exercise(file_name):
         try:
             rep_number = int(input("Re-type or update " + replaced_row[3] + ": "))
         except ValueError:
-            print("[red]Sorry, needs to be be a number")
+            print("[red] :cross_mark: Sorry, needs to be be a number :cross_mark: ")
             continue
         except Exception:
-            print("[red]Something went wrong.")
+            print("[red] :cross_mark: Try again :cross_mark: ")
         else:
             break
     
@@ -227,6 +225,7 @@ def remove_exercise(file_name):
                     replaced_row = row
 
         if (replaced_row is None):
+            print("[red] :cross_mark: Input does not match, try again.  :cross_mark: ")
             continue
         else:
             break
