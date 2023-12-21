@@ -31,7 +31,7 @@ def home_menu():
     
     print("[blue]1. Enter 1 to add a new exercise")
     print("[green]2. Enter 2 to update an exercise")
-    print("[blue]3. Enter 3 to delete an exercise")
+    print("[blue]3. Enter 3 to remove an exercise")
     print("[green]4. Enter 4 to view your workout history")
     print("[blue]5. Enter 5 exit and log your workout")
     choice = input("\nEnter your selection: ")
