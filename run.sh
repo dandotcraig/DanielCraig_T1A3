@@ -1,10 +1,12 @@
 #!/bin/bash
 
-
-# check if python is installed
-command -v python3 >/dev/null 2>&1 && echo Python 3 is installed  # POSIX-compliant
-type -P python3 >/dev/null 2>&1 && echo Python 3 is installed     # Bash only
-# check if venv exists
+if ! [[ -x "$(command -v python3)" ]]
+then
+  echo 'Error: 
+    This program runs on Python, but it looks like Python is not installed.
+    To install Python, check out https://installpython3.com/' >&2
+  exit 1
+fi
 
 
 python3 -m venv .venv

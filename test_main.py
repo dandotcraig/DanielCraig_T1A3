@@ -1,5 +1,7 @@
-from main import home_menu
+from gym_functions import view_previous_workout
+import pytest
 
-def test_home_menu_option_1():
-    result = home_menu()
-    assert result == "1"
+def test_view_previous_workout():
+    user_choice == "1"
+    assert "[green]You choose add a new exercise"
+

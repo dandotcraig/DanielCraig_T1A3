@@ -2,9 +2,9 @@ from gym_functions import view_previous_workout, add_exercise, update_exercise, 
 from datetime import date
 from rich import print
 import emoji
+import sys
 
-
-
+print(f"You've opened { sys.argv[0]}")
 file_name = "exercise_list.csv"
 history = "exercise_log.csv"
 
