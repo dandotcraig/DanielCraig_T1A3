@@ -1,6 +1,7 @@
 import csv
 import datetime
 from rich import print
+import emoji
 
 
 copied_file = []
