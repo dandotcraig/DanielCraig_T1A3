@@ -1,0 +1,66 @@
+Workout app test,,,,,
+TEST DESCRIPTION,TEST DESIGNED BY,TEST EXECUTED BY,TEST NUMBER,TEST DATE,
+Testing the app for any bugs,Dan Craig,Dan Craig,1,21/12/2023,
+,,,,,
+Test,Test step,Test description and inputs,EXPECTED RESULTS,ACTUAL RESULTS,PASS / FAIL
+Add new exercise user inputs,New exercise ,Puts number in,Asks user again,Asks user again,PASS
+,,Puts words/letters in,Accepts,Accepts,PASS
+,,Puts words/letters/numbers in,asks user again,asks user again,PASS
+,,Puts !@#$,Accepts,Accepts,PASS
+,,,,,
+Add new weight user inputs,New weight ,Puts number in,asks user again,asks user again,PASS
+,,Puts words/letters in,asks user again,asks user again,PASS
+,,Puts words/letters/numbers in,asks user again,asks user again,PASS
+,,Puts !@#$,asks user again,asks user again,PASS
+,,number + kg,Accepts,Accepts,PASS
+,,,,,
+Add new set user inputs,New set ,Puts number in,Accepts,Accepts,PASS
+,,Puts words/letters in,asks user again,asks user again,PASS
+,,Puts words/letters/numbers in,asks user again,asks user again,PASS
+,,Puts !@#$,asks user again,asks user again,PASS
+,,,,,
+Add new reps user inputs,New reps,Puts number in,Accepts,Accepts,PASS
+,,Puts words/letters in,asks user again,asks user again,PASS
+,,Puts words/letters/numbers in,asks user again,asks user again,PASS
+,,Puts !@#$,asks user again,asks user again,PASS
+,,,,,
+Update exercise user inputs,Type the excerise you want to update,Puts number in that doesn't match,asks user again,asks user again,PASS
+,,Puts words/letters in that doesn't match,asks user again,asks user again,PASS
+,,Puts words/letters/numbers in that doesn't match,asks user again,asks user again,PASS
+,,Puts !@#$ that doesn't match,asks user again,asks user again,PASS
+,,puts excerise that matches,Accepts,Accepts,PASS
+,,,,,
+Re-type or update exercise,,Puts number in that doesn't match,asks user again,asks user again,PASS
+,,Puts words/letters in that doesn't match,Accepts,Accepts,PASS
+,,Puts words/letters/numbers in that doesn't match,asks user again,asks user again,PASS
+,,Puts !@#$ that doesn't match,Accepts,Accepts,PASS
+,,puts excerise that matches,Accepts,Accepts,PASS
+,,,,,
+Re-type or update weight user inputs,New weight ,Puts number in,asks user again,asks user again,PASS
+,,Puts words/letters in,asks user again,asks user again,PASS
+,,Puts words/letters/numbers in,asks user again,asks user again,PASS
+,,Puts !@#$,asks user again,asks user again,PASS
+,,number + kg,Accepts,Accepts,PASS
+,,puts weight that matches,Accepts,Accepts,PASS
+,,,,,
+Re-type or update set user inputs,New set ,Puts number in,Accepts,Accepts,PASS
+,,Puts words/letters in,asks user again,asks user again,PASS
+,,Puts words/letters/numbers in,asks user again,asks user again,PASS
+,,Puts !@#$,asks user again,asks user again,PASS
+,,puts set that matches,Accepts,Accepts,PASS
+,,,,,
+Re-type or update reps user inputs,New reps,Puts number in,Accepts,Accepts,PASS
+,,Puts words/letters in,asks user again,asks user again,PASS
+,,Puts words/letters/numbers in,asks user again,asks user again,PASS
+,,Puts !@#$,asks user again,asks user again,PASS
+,,puts reps that matches,Accepts,Accepts,PASS
+,,,,,
+User deletes an exercise,delete exercise,Puts matching exercise,Accepts,Accepts,PASS
+,,Puts random numbers,asks user again,asks user again,PASS
+,,Puts random letters,asks user again,asks user again,PASS
+,,Puts random numbers/letters,asks user again,asks user again,PASS
+,,Puts !@#$,,,
+,,,,,
+View workout history,shows all history logged,User presses four,Accepts,Accepts,PASS
+,,,,,
+Exit and save,Exit and logs the workout,User presses five,Accepts,Accepts,PASS

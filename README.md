@@ -53,7 +53,7 @@ Git repository can be viewed here: https://github.com/dandotcraig/DanielCraig_T1
 
 ---
 
-I've decided to go with the PEP8 styling convention. This is the guide I followed: https://pep8.org/
+I've decided to go with the PEP8 styling convention. These are the guides I followed: https://peps.python.org/pep-0008/ &  https://pep8.org/
 
 # R6	
 ### Develop a list of features that will be included in the application. It must include:
@@ -166,3 +166,10 @@ Software requirements:
 
 Hardware requirements:
 * Any modern computer or laptop with at least 2GB RAM and 100MB of free disk space.
+
+
+
+
+[Worksheet test CSV](<img/Workout app test worksheet.csv>) 
+
+[Worksheet test PDF](<img/Workout app test worksheet.pdf>)
