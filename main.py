@@ -41,7 +41,7 @@ def home_menu():
     return choice
 
 user_choice = ""
-
+# User input links upto these external functions
 while user_choice != "5":
     user_choice = home_menu()
     if (user_choice == "1"):
@@ -58,5 +58,5 @@ while user_choice != "5":
         continue
     else:
         print("Invalid Input - input needs to be a number between 1 - 5 ")
-
+# Thanks the user for using the program!
 print(":woozy_face:[blue]Thanks you for using workout tracker :woozy_face:")
