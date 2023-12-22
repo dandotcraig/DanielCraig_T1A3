@@ -178,8 +178,72 @@ Hardware requirements:
 * Any modern computer or laptop with at least 2GB RAM and 100MB of free disk space.
 
 
+# R9 & R10
 
-## TESTING
+View PDF deck HERE
+View video preso HERE
+
+# R11	
+### Implement features in the software development plan you have designed.
+
+---
+
+See thee [Main](main.py) & [Functions](gym_functions.py) python folder
+
+# R12	
+### Apply DRY (Don’t Repeat Yourself) coding principles to all code produced.
+
+---
+
+See thee [Main](main.py) & [Functions](gym_functions.py) python folder
+
+# R13	
+### Apply all style and conventions for the programming language consistently to all code produced.
+
+---
+
+See thee [Main](main.py) & [Functions](gym_functions.py) python folder
+
+# R14	
+### Creates an application which runs without error and has features that are consistent with the development plan.
+
+
+---
+
+Scroll to R8 to run the program.
+
+# R15
+### Design TWO tests which check that the application is running as expected.
+
+
+---
+
+Design and implimented over 20 tests
+
 [Worksheet test CSV](<img/Workout app test worksheet.csv>) 
 
 [Worksheet test PDF](<img/Workout app test worksheet.pdf>)
+
+View example below:
+
+![Alt text](img/tests.png)
+
+# R16
+### Utilise source control throughout the development of the application
+
+---
+
+At the time of writing this, I've commited to git hub over 43 times. 
+
+https://github.com/dandotcraig/DanielCraig_T1A3
+
+View example below:
+
+![Alt text](img/commits.png)
+
+# R17
+### Utilise developer tools to facilitate the execution of the application
+
+---
+
+View [Run.sh](run.sh)
