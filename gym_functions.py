@@ -2,7 +2,7 @@ import csv
 import datetime
 from rich import print
 import emoji
-import pytest
+
 
 copied_file = []
 # First function - shows the previous workout or a blank slate

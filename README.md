@@ -179,9 +179,13 @@ Hardware requirements:
 
 
 # R9 & R10
+---
 
-View PDF deck HERE
-View video preso HERE
+I've created an overview video here: https://youtu.be/FbKd6TzjVw4?feature=shared
+Slide deck can be viewed here: [DanielCraig_T1A3_slidedeck](img/DanielCraig_T1A3_slidedeck.pdf)
+Slide deck video can viewed here: https://youtu.be/MUvIY0AUXLA?feature=shared
+
+
 
 # R11	
 ### Implement features in the software development plan you have designed.
