@@ -55,6 +55,16 @@ Git repository can be viewed here: https://github.com/dandotcraig/DanielCraig_T1
 
 I've decided to go with the PEP8 styling convention. These are the guides I followed: https://peps.python.org/pep-0008/ &  https://pep8.org/
 
+Throughout the project I:
+* Never used I, O or single letters as names
+* Used underscores to between words if the variable had more than one word within it.
+* Aimed to keep max line length at 79 characters 
+* Followed the line indentation line break rules
+* Only used blank lines inbetween to symbolise a new step
+* I updated comments to match the code that had been updated while keeping them short and sweet.
+* Avoided white space
+* Put once space between various operators
+
 # R6	
 ### Develop a list of features that will be included in the application. It must include:
 - at least THREE features
@@ -169,7 +179,7 @@ Hardware requirements:
 
 
 
-
+## TESTING
 [Worksheet test CSV](<img/Workout app test worksheet.csv>) 
 
 [Worksheet test PDF](<img/Workout app test worksheet.pdf>)

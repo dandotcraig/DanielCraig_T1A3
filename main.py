@@ -10,6 +10,7 @@ history = "exercise_log.csv"
 
 print("\n[green] :flexed_biceps: Welcome to your workout tracker :flexed_biceps:  \n")
 
+# This is where the program checks for CSV files and if they aren't there it makes them
 try:
     exercise_list = open(file_name, "r")
     exercise_list.close()
@@ -26,10 +27,11 @@ except FileNotFoundError:
     exercise_log.close()
     print("Enter 1 to add workout to your list")
 
+# Prints the previous workout or empty if its the first time
 print(view_previous_workout(file_name))
 
+# Here is the main menu presented to the user
 def home_menu():
-    
     print("[blue]1. Enter 1 to add a new exercise")
     print("[green]2. Enter 2 to update an exercise")
     print("[blue]3. Enter 3 to remove an exercise")
