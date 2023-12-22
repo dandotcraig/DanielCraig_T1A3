@@ -25,7 +25,7 @@ except FileNotFoundError:
     exercise_log.write(str(date.today()) + "\n")
     exercise_log.write("exercise,weight,sets,reps\n")
     exercise_log.close()
-    print("Enter 1 to add workout to your list")
+    print("First time here? Let's get started and add some exercises!")
 
 # Prints the previous workout or empty if its the first time
 print(view_previous_workout(file_name))

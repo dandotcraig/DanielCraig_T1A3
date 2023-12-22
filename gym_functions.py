@@ -93,7 +93,7 @@ def add_exercise(file_name):
     for i in range (len(copied_file)):
         print("Exercise " + str(int(i)) + ": " + (str(copied_file[i]))) 
     
-    print(f"\nThis line {new_exercise} has been added")
+    print(f"\nThis exercise {new_exercise} has been added")
     print("")
 
 # Updates exercise
@@ -170,7 +170,7 @@ def update_exercise(file_name):
     # We check for to make sure the user inputs the right format
     while True:
         try:
-            set_number = int(input("Re-type or update " + replaced_row[2] + ": "))
+            set_number = int(input("Re-type or update sets " + replaced_row[2] + ": "))
         except ValueError:
             print("[red] :cross_mark: Sorry, needs to be be a number :cross_mark: ")
             continue
@@ -181,7 +181,7 @@ def update_exercise(file_name):
     # We check for to make sure the user inputs the right format
     while True:
         try:
-            rep_number = int(input("Re-type or update " + replaced_row[3] + ": "))
+            rep_number = int(input("Re-type or update reps " + replaced_row[3] + ": "))
         except ValueError:
             print("[red] :cross_mark: Sorry, needs to be be a number :cross_mark: ")
             continue
@@ -207,7 +207,7 @@ def update_exercise(file_name):
     print("\nHere is your updated workout")
     for i in range (len(copied_file)):
         print("Exercise " + str(int(i)) + ": " + (str(copied_file[i]))) 
-    print(f"\nThis line has been updated to {new_exercise}")
+    print(f"\nThis exercise has been updated to {new_exercise}")
     print("")
 
 # Removes exercise   
@@ -254,7 +254,7 @@ def remove_exercise(file_name):
     for i in range (len(copied_file)):
         print("Exercise " + str(int(i)) + ": " + (str(copied_file[i])))
     
-    print(f"\nThis line {replaced_row} has been removed")
+    print(f"\nThis exercise {replaced_row} has been removed")
     print("")
     return ""
 
