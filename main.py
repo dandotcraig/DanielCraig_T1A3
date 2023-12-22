@@ -4,7 +4,7 @@ from rich import print
 import emoji
 import sys
 
-print(f"You've opened { sys.argv[0]}")
+print(f"You've opened { sys.argv[0]}" )
 file_name = "exercise_list.csv"
 history = "exercise_log.csv"
 
