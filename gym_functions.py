@@ -4,9 +4,8 @@ from rich import print
 import emoji
 import pytest
 
-
 copied_file = []
-
+# First function - shows the previous workout or a blank slate
 def view_previous_workout(file_name):
     copied_file = []
     with open(file_name, 'r') as f:
@@ -23,9 +22,11 @@ def view_previous_workout(file_name):
         index += 1
     
     return ""
-        
+# Adds exercise    
 def add_exercise(file_name):
     print("[green]You choose add a new exercise")
+
+    # We check for to make sure the user inputs the right format
     while True:
         try:
             exercise_name = input("Enter your new exercise: ")
@@ -37,6 +38,7 @@ def add_exercise(file_name):
         else:
             break
 
+    # We check for to make sure the user inputs the right format
     while True:
         try:
             kilo = "kg"
@@ -49,6 +51,7 @@ def add_exercise(file_name):
         else:
             break
 
+    # We check for to make sure the user inputs the right format
     while True:
         try:
             set_number = int(input("Enter your sets: "))
@@ -60,6 +63,7 @@ def add_exercise(file_name):
         else:
             break
     
+    # We check for to make sure the user inputs the right format
     while True:
         try:
             rep_number = int(input("Enter your reps: "))
@@ -71,7 +75,7 @@ def add_exercise(file_name):
         else:
             break
 
-    
+    # Re assigned variables get written
     with open(file_name, "a") as f:
         writer = csv.writer(f)
         writer.writerow([exercise_name, weight_number, set_number, rep_number])
@@ -80,6 +84,7 @@ def add_exercise(file_name):
     
     new_exercise = [exercise_name, weight_number, set_number, rep_number]
 
+    # We print and show the user the updated exercises
     with open(file_name, 'r') as f:
         reader = csv.reader(f)   
         for row in reader:
@@ -91,9 +96,7 @@ def add_exercise(file_name):
     print(f"\nThis line {new_exercise} has been added")
     print("")
 
-
-
-
+# Updates exercise
 def update_exercise(file_name):
     print("[green]You choose update an exercise")
     # user input
@@ -113,16 +116,20 @@ def update_exercise(file_name):
                     # we want it in the update cvs
                     exercise_list.append(row)
                 else:
+                    # replace row grabs the data to be used later
                     replaced_row = row
         if (replaced_row is None):
+            # If it doesn't work... print this
             print("[red] :cross_mark: Input does not match, try again. :cross_mark: ")
             continue
             
         else:
             break
-                                
+
+    # Show the user the row    
     print(replaced_row)
 
+    # Writes the list
     with open(file_name, "w") as f:
         writer = csv.writer(f)
         writer.writerows(exercise_list)
@@ -134,7 +141,9 @@ def update_exercise(file_name):
         for row in reader:
             copied_file.append(row)
 
+    # Update sequence
     print("\nUpdate the exercises details: ")
+    # We check for to make sure the user inputs the right format
     while True:
         try:
             exercise_name = input("Re-type or update " + replaced_row[0] + ": ")
@@ -146,6 +155,7 @@ def update_exercise(file_name):
         else:
             break
 
+    # We check for to make sure the user inputs the right format
     while True:
         try:
             kilo = "kg"
@@ -157,7 +167,7 @@ def update_exercise(file_name):
             print("[red] :cross_mark: Try again :cross_mark: ")
         else:
             break
-    
+    # We check for to make sure the user inputs the right format
     while True:
         try:
             set_number = int(input("Re-type or update " + replaced_row[2] + ": "))
@@ -168,7 +178,7 @@ def update_exercise(file_name):
             print("[red] :cross_mark: Try again :cross_mark: ")
         else:
             break
-    
+    # We check for to make sure the user inputs the right format
     while True:
         try:
             rep_number = int(input("Re-type or update " + replaced_row[3] + ": "))
@@ -180,8 +190,7 @@ def update_exercise(file_name):
         else:
             break
     
-    
-    
+    # Re assigned variables get written
     with open(file_name, "a") as f:
         writer = csv.writer(f)
         writer.writerow([exercise_name, weight_number, set_number, rep_number])
@@ -190,6 +199,7 @@ def update_exercise(file_name):
     
     new_exercise = [exercise_name, weight_number, set_number, rep_number]
 
+    # Shows the user the updated exercise row
     with open(file_name, 'r') as f:
         reader = csv.reader(f)   
         for row in reader:
@@ -199,11 +209,8 @@ def update_exercise(file_name):
         print("Exercise " + str(int(i)) + ": " + (str(copied_file[i]))) 
     print(f"\nThis line has been updated to {new_exercise}")
     print("")
-    
 
-
-
-
+# Removes exercise   
 def remove_exercise(file_name):
 
     while True:
@@ -251,7 +258,7 @@ def remove_exercise(file_name):
     print("")
     return ""
 
-
+# Views all the workouts that have been saved and logged in the CSV
 def view_history(history):
     print("Here are all your previous workouts: ")
     
@@ -265,6 +272,7 @@ def view_history(history):
     print(pull_history)
     return ""
 
+# Logs the workouts along with the date for next time.
 def save_exit(file_name, history):
     print("[blue]You selected exit and log your workout")
     copied_file = []
@@ -273,10 +281,10 @@ def save_exit(file_name, history):
 
         headers = next(reader)
         
-
         for row in reader:
             copied_file.append(row)
     
+    # Writes the new row into the history log to be returned in the future
     with open(history, 'a', newline='') as f:
         writer = csv.writer(f)
         writer.writerow([])
